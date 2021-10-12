@@ -1,0 +1,3 @@
+-lbgi
+-lgdi32
+-luser32

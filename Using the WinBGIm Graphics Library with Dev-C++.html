@@ -1,0 +1,55 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Using the WinBGIm Graphics Library with Dev-C++</title>
+</head>
+<body bgcolor="eeeeff">
+<h1>Using the WinBGIm Graphics Library with Dev-C++</h1>
+September 2008
+<hr>
+<h3>Description:</h3>
+This page provides a mechinism for using the WinBGIm Graphics Library
+with the Dev-C++ development environment..  
+Additional
+documentation for the WinBGIm graphics library is available at
+<a href="http://www.cs.colorado.edu/~main/bgi">www.cs.colorado.edu/~main/bgi</a>.
+
+<h3>Installation Notes:</h3>
+<ol>
+<li> Install Dev-C++.  I installed from the <a href="https://www.cs.colorado.edu/~main/bgi/dev-c++/devcpp-4.9.9.2_setup.exe">Version 4.9.9.2 Setup File</a>.
+</li><li> Download <a href="https://www.cs.colorado.edu/~main/bgi/dev-c++/graphics.h">graphics.h</a> to the include/
+subdirectory of the Dev-C++ directories.
+</li><li> Download <a href="https://www.cs.colorado.edu/~main/bgi/dev-c++/libbgi.a">libbgi.a</a> to the lib/ 
+In order to use the WinBGIm
+subdirectory of the Dev-C++ directories.
+</li><li> Whenever you #include &lt;graphics.h&gt; in a program, you must
+instruct the linker to link in certain libraries.  The command to do
+so from Dev-C++ is Alt-P.  Choose the Parameters tab from the pop-up
+window and type the following into the Linker area:
+<pre>-lbgi
+-lgdi32
+-lcomdlg32
+-luuid
+-loleaut32
+-lole32
+</pre>
+You can now compile and run programs that use the WinBGIm graphics
+library, such as this one that opens a small window, draws a circle
+and waits for the user to press a key:
+<pre>#include &lt;graphics.h&gt;
+
+int main( )
+{
+    initwindow(400, 300, "First Sample");
+    circle(100, 50, 40);
+    while (!kbhit( ))
+    {
+        delay(200);
+    }
+    return 0;
+}
+</pre>
+<hr>
+Michael Main (<a href="mailto://main@colorado.edu">main@colorado.edu</a>)
+
+
+</li></ol></body></html>
